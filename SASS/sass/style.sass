@@ -1,0 +1,574 @@
+@import "./_options"
+@import "./_default"
+@import "./_font"
+
+// ============================
+// MAIN CODE START
+// ============================
+html
+	font-family:HelveticaNeue
+
+.container
+	width: 100%
+	max-width: nth($mediaBp, 1)
+	padding:
+		left: 10px
+		right: 10px
+	margin:
+		left: auto
+		right: auto
+	&_preview
+		@media (max-width: nth($mediaBp, 3))
+			padding-top: 100px
+		padding-top: 200px
+		padding-bottom: 160px
+		background-image: linear-gradient(to left, #000, rgba(#fff, .3), #000)
+		-webkit-box-shadow: inset
+		box-shadow: inset 0 93px 250px 0 #000, inset 0 -93px 250px 0 #000
+.header
+	@include grid
+	padding: 40px 0
+	position: absolute
+	top: 0
+	left: 0
+	right: 0
+	&-grid
+		@include flex($jc: space-between, $ai: center)
+.nav
+	&-list
+		@include flex
+		li + li
+			margin-left: 20px
+		&__link
+			font-size: 15px
+			color: #FFF
+			&:hover
+				text-decoration: underline
+	&-toggle
+		@include flex($jc: center, $ai: center)
+		display: none
+		width: 35px
+		height: 35px
+		border: 1px solid #fff
+			radius: 6px
+		cursor: pointer
+		color: #FFF
+
+		&__close
+			display: none
+		&_active &__close
+			display: inline-block
+		&_active &__open
+			display: none
+.logo
+	font-size: 21px
+	font-weight: bold
+	text-transform: uppercase
+	color: #FFF
+	margin-left: 20px
+.preview-block
+	background-color: #000
+	color: #FFF
+	&__title
+		@media (max-width: nth($mediaBp, 3))
+			font-size: 25px
+			max-width: 620px
+		max-width: 535px
+		font-size: 48px
+	&__text
+		@media (min-width: nth($mediaBp, 3) + 1)
+			max-width: 535px
+			font-size: 15px
+		margin-top: 20px
+		font-size: 18px
+		line-height: 2
+.buttons
+	@include flex
+	margin-top: 33px
+	&__button
+		& + &
+			margin-left: 10px
+			@media (max-width: nth($mediaBp, 4))
+				margin-left: 0
+				margin-top: 10px
+.button
+	@include flex($jc: center, $ai: center)
+	width: 175px
+	height: 50px
+	font-size: 16px
+	color: #FFF
+	text-transform: capitalize
+	background-color: $mainC1
+	border-radius: 6px
+	transition: .2s
+	&:hover
+		color: #000
+		background-color: #FFF 
+	&_transparent
+		background-color: transparent
+		border: 1px solid #fff
+		&:hover
+			color: #000
+			background-color: #FFF
+.promotion
+	@include grid($s: 5px)
+	&-block
+		padding: 50px 0
+		background-color: #F7F8FA
+		border-bottom: 1px solid #ebedf0
+		&__img
+			display: block
+			max-width: 100%
+			margin: auto
+			@media (min-width: nth($mediaBp, 3) + 1)
+				margin-top: -20%
+		&__title
+			font-size: 24px
+		&__text
+			margin-top: 20px
+			font-size: 15px
+			line-height: 1.5
+			color: $mainC3
+	@media (min-width: nth($mediaBp, 3) + 1)
+		&-grid
+			flex-wrap: nowrap
+			align-items: center
+			&__col
+				&:nth-child(1)
+					width: 375px
+					flex-shrink: 0
+				&:nth-child(2)
+					flex-grow: 1
+
+.slick-initialized .slick-slide
+	display: flex
+.services .slick-arrow
+	position: absolute
+	top: 55%
+	cursor: pointer
+	z-index: 10
+
+.services
+	@include grid($s: 10px)
+	text-align: center
+	padding: 75px 0
+	position: relative
+	&-prev
+		left: 25px
+		font-size: 25px
+		color: $mainC2
+		width: 30px
+		height: 30px
+		display: none
+	&-next
+		right: 25px
+		font-size: 25px
+		color: $mainC2
+		width: 30px
+		height: 30px
+		display: none
+	&-block
+		&__title
+			@media (max-width: nth($mediaBp, 4))
+				font-size: 20px
+			color: $mainC2
+			font-weight: bold
+			font-size: 30px
+		&__text
+			@media (max-width: nth($mediaBp, 4))
+				font-size: 15px
+			color: $mainC3
+			margin-top: 35px
+			font-size: 21px
+		
+	&-grid
+		@include flex($jc: center, $ai: center)
+		padding-top: 55px
+		@media (max-width: nth($mediaBp, 1))
+			padding-left: 35px
+			padding-right: 35px
+		
+		&__col
+			justify-content: center
+		&__item
+			display: flex
+			flex-direction: column
+			max-width: 250px
+			padding: 20px 20px 0 20px
+			border-top: 1px solid rgb(235, 237, 240)
+			border-radius: 3px
+			background-color: rgb(255, 255, 255)
+			position: relative
+			&:before,&:after
+				content: ""
+				position: absolute
+				background-image: linear-gradient(rgb(235, 237, 240), transparent)
+				top: 0px
+				bottom: 0px
+				width: 1px
+			&:before
+				left: 0px
+			&:after
+				right: 0px
+		&__icon
+			font-size: 3em
+			margin-top: 20px
+			color: rgb(62, 67, 74)
+		&__title
+			font-size: 17px
+			color: rgb(66, 71, 78)
+			margin-top: 35px
+		&__text
+			font-size: 14px
+			color: rgb(137, 143, 152)
+			margin-top: 20px
+		&__button
+			@include flex($jc: center, $ai: center)
+			margin-top: 30px
+		&__buttons
+			font-size: 14px
+			width: 105px
+			height: 35px
+			color: rgb(137, 143, 152)
+			border: 1px solid rgb(229, 230, 233)
+			border-radius: 4px
+			background-image: linear-gradient( 90deg, rgb(252,252,253) 0%, rgb(253,253,253) 100%)
+			&:hover
+				color: #fff
+				background-image: linear-gradient( 90deg, $mainC2 0%, $mainC3 100%)
+.review
+	&-block
+		@media (max-width: nth($mediaBp, 4))
+			padding: 40px 0 60px 0
+		border: 1px solid rgb(235, 237, 240)
+		background-color: rgb(247, 248, 250)
+		padding: 60px 0 60px 0
+		&__title
+			@media (max-width: nth($mediaBp, 3))
+				padding-bottom: 20px
+			@media (max-width: nth($mediaBp, 4))
+				font-size: 20px
+				padding-bottom: 10px
+			font-size: 30px
+			color: rgb(62, 67, 74)
+			font-weight: bold
+			text-align: center
+			padding-bottom: 50px
+		&-grid
+			&__item
+				@include flex($jc: left, $ai: flex-start)
+				flex-direction: column
+				padding: 0 20px
+				max-width: 300px
+			&__col
+				@include flex($jc: center, $ai: center)
+				width: 100%
+			@include flex($jc: space-between, $ai: center)
+			&.slick-slider
+				@include flex($jc: center)
+	&-col
+		&__text
+			background-color: rgb(255, 255, 255)
+			border-radius: 3px
+			box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1)
+			max-width: 280px
+			font-size: 13px
+			color: rgb(101, 107, 116)
+			text-align: left
+			padding: 20px 30px 30px 20px
+			position: relative
+		&__triangle
+			width: 60px
+			height: 60px
+			position: relative
+			overflow: hidden
+			top: -40px
+			transform: rotate(315deg)
+			box-shadow: 0 16px 10px -17px rgba(0, 0, 0, 0.1)
+			&:after
+				content: ""
+				position: absolute
+				width: 30px
+				height: 30px
+				background-color: rgb(255, 255, 255)
+				transform: rotate(45deg)
+				top: 45px
+				left: 15px
+				box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1)
+		&__photo
+			font-size: 12px
+			margin-top: -30px
+			color: rgb(110, 116, 124)
+			@include flex($jc: left, $ai: center)
+		&__name
+			@media (max-width: nth($mediaBp,1))
+				font-size: 10px
+			line-height: 4.5
+		&__nick-name
+			text-decoration: none
+			color: green
+
+
+
+.slick
+	&-dots
+		@media (max-width: nth($mediaBp,1))
+			left: 45%
+		padding-top: 15px
+		width: 80px
+		@include flex($jc: space-between, $ai: center)
+		position: absolute
+		top: 100%
+		left: 50%
+		li
+			button
+				font-size: 0
+				border: 3px solid rgb(32, 149, 188)
+				border-radius: 50%
+				background-color: transparent
+				width: 20px
+				height: 20px
+			&.slick-active
+				button
+					border: 3px solid transparent
+					background-color: rgb(32, 149, 188)
+		
+			
+.product
+	&-block
+		padding: 90px 0
+		background-color: $mainC1
+		text-align: center
+		@media (max-width: nth($mediaBp, 4))
+			padding: 40px 0
+		&__title
+			@media (max-width: nth($mediaBp, 4))
+				font-size: 20px
+			font-size: 36px
+			color: rgb(255, 255, 255)
+			font-weight: bold
+		&__text
+			@media (max-width: nth($mediaBp, 4))
+				font-size: 15px
+				padding-top: 15px
+			font-size: 21px
+			color: rgb(149, 205, 224)
+			padding-top: 30px
+		&__button
+			@media (max-width: nth($mediaBp, 4))
+				padding-top: 15px
+				font-size: 25px
+			padding-top: 30px
+			@include flex($jc: center, $ai: center)
+	&-button
+		text-transform: none
+		border: 1px solid rgba(255, 255, 255, 0.5)
+		border-radius: 6px
+		background-color: rgba(6, 164, 77, 0)
+		font-size: 16px
+		color: rgb(255, 255, 255)
+		&:hover
+			color: $mainC2
+			background-color: #fff
+.footer 
+	background-color: rgb(62, 67, 74)
+	font-size: 13px
+	color: rgb(165, 171, 178)
+	text-align: left
+	&-link
+		&__item
+			text-decoration: none
+			color: rgb(165, 171, 178)
+			line-height: 2
+			&:hover	
+				text-decoration: underline
+		&__title
+			color: rgb(208, 214, 221)
+			font-weight: bold
+			line-height: 4
+		&__text
+			line-height: 1.5
+	@include grid($s: 10px)		
+	&-grid
+		@include flex($jc: space-between, $ai: flex-start)
+		position: relative
+		&__col
+			&-newsletter
+				max-width: 300px
+	&-form
+		@media (max-width: nth($mediaBp, 5))
+			justify-content: center
+		padding-top: 10px
+		@include flex($jc: space-between, $ai: center)
+		&__email
+			border-style: none
+			height: 30px
+			border-radius: 4px
+			background-color: rgb(255, 255, 255)
+			width: 190px
+			padding-left: 10px
+		&__button
+			border-style: none
+			border-radius: 2px
+			height: 30px
+			background-image: linear-gradient( 90deg, rgb(74,79,87) 0%, rgb(86,92,100) 100%)
+			width: 80px
+			font-size: 12px
+			color: rgb(187, 193, 200)
+			text-align: center
+			&:hover
+				cursor: pointer
+				background-image: linear-gradient( 90deg, #fff 0%, #fff 100%)
+				color: $mainC3
+	&-item
+		padding: 50px 0 35px 0
+		&__line
+			border-top: 1px solid rgb(81, 86, 93)
+			height: 1px
+			width: 100%
+			display: block
+		&__text
+			line-height: 4
+
+
+// ============================
+// MAIN CODE END
+// ============================
+
+@for $i from 1 to length($mediaBp)
+	@media (max-width: nth($mediaBp, $i))
+		.container
+			max-width: nth($mediaBp, $i + 1)
+
+// ============================
+// MEDIA QUARIES
+// ============================
+@media (max-width: nth($mediaBp,1))
+	.review-grid
+		&__item
+			padding: 20px
+
+@media (max-width: nth($mediaBp,3))
+	.header
+		position: fixed
+		top: 0
+		left: 0
+		right: 0
+		background-color: #000
+		padding: 10px 0
+		z-index: 50
+
+	.nav
+		position: fixed
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		z-index: -1
+		background-color: #000
+		padding: 80px 0 40px
+		overflow: scroll
+			x: hidden
+			y: auto
+		visibility: hidden
+		opacity: 0
+		transition: .3s
+		&_active
+			opacity: 1
+			visibility: visible
+		&_active &-list
+			transform: translate(0, 0)
+		&-list
+			flex-direction: column
+			align-items: center
+			transform: translate(0, 30px)
+			transition: .3s
+			li + li
+				margin: 0
+			&__link
+				display: block
+				font-size: 20px
+				line-height: 1.8
+
+	.logo 
+		font-size: 18px
+
+	.nav-toggle
+		display: flex
+
+	.preview-block
+		text-align: center
+
+	.promotion-block
+		text-align: center
+
+	.buttons
+		justify-content: center
+
+	.container
+		&_preview
+			padding-bottom: 80px
+	.review-grid
+		flex-wrap: wrap
+		align-items: center
+		justify-content: center
+		&__col
+			width: 100%
+			padding-top: 20px
+	.services
+		padding-top: 40px
+
+
+	.promotion
+		&-text
+			text-align: center
+		&-grid
+			flex-direction: column
+		&-block__img
+			max-width: 480px
+	.footer-link
+		display: none
+	.footer-grid
+		justify-content: center
+		align-items: center
+		text-align: center
+		&__col
+			padding: 0
+		&__col-newsletter
+			width: 100%
+	.footer-item
+		text-align: center
+		
+@media (max-width: nth($mediaBp, 4))
+	.buttons
+		flex-direction: column
+		justify-content: center
+		align-items: center
+	.slick-dots
+		left: 45%
+	.footer-item 
+		padding: 20px 0 15px 0
+
+@media (max-width: nth($mediaBp, 5))
+	.services
+		padding-bottom: 30px
+		&-grid
+			padding-top: 20px
+			&__title
+				margin-top: 20px
+			&__icon
+				margin-top: 10px
+			&__col
+				padding: 20px
+		&-prev
+			left: 20px
+
+		&-next
+			right: 20px
+	.promotion
+		&-block__img
+			max-width: 280px
+	.slick-dots
+		left: 40%
+
+
